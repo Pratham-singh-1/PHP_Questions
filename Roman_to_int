@@ -1,0 +1,35 @@
+class Solution {
+
+    /**
+     * @param String $s
+     * @return Integer
+     */
+    function romanToInt($s) {
+        $result=0;
+        $roman = [
+        'I' => 1,
+        'V' => 5,
+        'X' => 10,
+        'L' => 50,
+        'C' => 100,
+        'D' => 500,
+        'M' => 1000
+    ];
+        $len=strlen($s);
+
+        for($i=0;$i<$len;$i++)
+        {
+            $curr=$roman[$s[$i]];
+            if($curr < $roman[$s[$i+1]] && ($i +1)<$len)
+            {
+                $result-=$curr;
+            }
+            else
+            {
+                $result+=$curr;
+            }
+        }
+        return $result;
+        
+    }
+}
