@@ -1,0 +1,32 @@
+class Solution {
+
+    /**
+     * @param Integer $x
+     * @return Boolean
+     */
+    function isPalindrome($x) {
+        
+        $rem=0;
+        $num=$x;
+        $result=0;
+        if($num<0)
+        {
+            return false;
+        }
+
+        while($num!=0)
+        {
+            $rem=$num%10;
+            $result=$result*10+$rem;
+            $num=intdiv($num,10);
+        }
+        if($result==$x)
+        {
+            return true;
+        }
+        else
+        {
+           return false;
+        }
+    }
+}
